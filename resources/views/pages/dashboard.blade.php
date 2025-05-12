@@ -1,0 +1,7 @@
+@extends('layouts.components.main')
+
+@section('header')
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h1 mb-0 text-gray-900">Dashboard</h1>
+</div>
+@endsection
