@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function dashboard() {
-        return view('pages.dashboard');
-    }
-
     public function product() {
         $products = Product::with('category')->get();
 

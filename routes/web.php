@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 
-Route::get('/', [ProductController::class, 'dashboard'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])->name('index');
 
 Route::prefix('products')->name('pages.products.')->group(function (){
     Route::get('/', [ProductController::class, 'product'])->name('product');

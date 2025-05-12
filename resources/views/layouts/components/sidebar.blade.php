@@ -2,7 +2,7 @@
     $menus = [
         (object) [
             "title" => "Dashboard",
-            "route" => "dashboard",
+            "route" => "index",
             "icon" => "fas fa-fw fa-tachometer-alt",
         ],
         (object) [
