@@ -81,15 +81,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Ingin keluar?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pilih opsi "Keluar" dibawah jika anda ingin mengakhiri sesi.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <form action="/logout" method="post">
+                        @csrf
+                        @method('POST')
+                        <button type="submit"class="btn btn-danger" >Keluar</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -106,11 +110,11 @@
     <script src={{asset("templates/js/sb-admin-2.min.js")}}></script>
 
     <!-- Page level plugins -->
-    <script src={{asset("templates/vendor/chart.js/Chart.min.js")}}></script>
+    {{-- <script src={{asset("templates/vendor/chart.js/Chart.min.js")}}></script>
 
     <!-- Page level custom scripts -->
     <script src={{asset("templates/js/demo/chart-area-demo.js")}}></script>
-    <script src={{asset("templates/js/demo/chart-pie-demo.js")}}></script>
+    <script src={{asset("templates/js/demo/chart-pie-demo.js")}}></script> --}}
 
     <script>
         setTimeout(function () {
