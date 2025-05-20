@@ -17,7 +17,7 @@ class IsLogin
     public function handle(Request $request, Closure $next): Response
     {
         if(!Auth::check()){
-            abort(401);
+            return redirect('/login')->with('notLogin', 'Anda belum login');
         }
         return $next($request);
     }

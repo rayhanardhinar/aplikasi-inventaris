@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body table-responsive">
                     <table class="table table-bordered">
                         <thead class="text-center">
                             <tr>
@@ -32,7 +32,7 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->description ?? '-'}}</td>
                                 <td class="text-center">{{ $product->quantity }}</td>
-                                <td class="text-center">{{ $product->price }}</td>
+                                <td class="text-center">{{ 'Rp ' . number_format($product->price, 2, ',', '.') }}</td>
                                 <td class="text-center">{{ $product->category->name }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center">

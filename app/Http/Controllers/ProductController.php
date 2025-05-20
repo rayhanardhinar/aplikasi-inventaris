@@ -91,4 +91,8 @@ class ProductController extends Controller
 
         return redirect('/products')->with('success', 'Produk berhasil diperbarui!');
     }
+
+    public function formatRupiah($value, $decimal = 2) {
+        return 'Rp ' . number_format($value, $decimal, ',', '.');
+    }
 }

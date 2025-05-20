@@ -33,6 +33,11 @@
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
+                        @if (session('notLogin'))
+                            <div class="alert alert-danger alert-dismissible fade show" id="notLogin" role="alert">
+                            {{ session('notLogin') }}
+                        </div>
+                        @endif
                         <!-- Nested Row within Card Body -->
                         <div class="row align-items-center">
                             <div class="col-lg-6">
@@ -92,6 +97,17 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset("templates/js/sb-admin-2.min.js")}}"></script>
+
+    <script>
+        setTimeout(function () {
+            let alert = document.getElementById('notLogin');
+            if (alert) {
+                alert.classList.remove('show');
+                alert.classList.add('fade');
+                setTimeout(() => alert.remove(), 500); // Hapus elemen dari DOM
+            }
+        }, 3000); // 3000 ms = 3 detik
+    </script>
 
 </body>
 
