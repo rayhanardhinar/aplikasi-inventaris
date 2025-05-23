@@ -19,7 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href={{ asset ("templates/css/sb-admin-2.min.css")}} rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 </head>
 
@@ -98,6 +98,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src={{asset("templates/vendor/jquery/jquery.min.js")}}></script>

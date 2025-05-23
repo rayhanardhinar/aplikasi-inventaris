@@ -35,8 +35,8 @@
                     <div class="card-body p-0">
                         @if (session('notLogin'))
                             <div class="alert alert-danger alert-dismissible fade show" id="notLogin" role="alert">
-                            {{ session('notLogin') }}
-                        </div>
+                                {{ session('notLogin') }}
+                            </div>
                         @endif
                         <!-- Nested Row within Card Body -->
                         <div class="row align-items-center">
