@@ -46,9 +46,6 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteModalLabel{{ $product->id }}">Hapus Produk</h5>
-                                            <button class="close" type="button" data-dismiss="modal" aria-label="Tutup">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
                                         </div>
                                         <div class="modal-body">Apakah kamu yakin ingin menghapus <strong>{{ $product->name }}</strong>?</div>
                                         <div class="modal-footer">

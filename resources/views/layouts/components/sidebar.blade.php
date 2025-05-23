@@ -10,6 +10,11 @@
             "route" => "pages.products.product",
             "icon" => "fas fa-fw fa-archive",
         ],
+        (object) [
+            "title" => "Kategori",
+            "route" => "pages.categories.category",
+            "icon" => "fas fa-fw fa-layer-group",
+        ],
     ]
 @endphp
 
