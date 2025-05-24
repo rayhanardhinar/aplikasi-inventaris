@@ -43,12 +43,12 @@
                                                 <h5 class="modal-title" id="deleteModalLabel{{ $category->id }}">Hapus Kategori</h5>
                                             </div>
                                             <div class="modal-body" id="modalBody-{{ $category->id }}">
-                                                Apakah kamu yakin ingin menghapus kategori <strong>{{ $category->name }}</strong>?
+                                                Apakah kamu yakin ingin menghapus kategori <strong>{{ $category->name }}</strong>?<br>
+                                                Produk yang memiliki kategori <strong>{{ $category->name }}</strong> akan <strong>ikut terhapus</strong>.
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                                                <button type="button" id="deleteButton-{{ $category->id }}" class="btn btn-danger" >Hapus</button>
-                                                <button type="submit" id="confirmButton-{{ $category->id }}" class="btn btn-danger">Yakin, Hapus</button>
+                                                <button type="submit" id="deleteButton-{{ $category->id }}" class="btn btn-danger">Hapus</button>
                                             </div>
                                         </form>
                                     </div>
@@ -61,9 +61,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-
-    </script>
-
 @endsection
