@@ -18,7 +18,7 @@
     ]
 @endphp
 
-<ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion position-sticky" id="accordionSidebar" style="top: 0; height: 100vh;">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
