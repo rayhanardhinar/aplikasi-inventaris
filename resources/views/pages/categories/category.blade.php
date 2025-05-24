@@ -47,8 +47,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                                                <button type="button" id="deleteButton-{{ $category->id }}" class="btn btn-danger button" onclick="confirmDelete('{{ $category->id }}')">Hapus</button>
-                                                <button type="submit" id="confirmButton-{{ $category->id }}" class="btn btn-danger d-none">Yakin, Hapus</button>
+                                                <button type="button" id="deleteButton-{{ $category->id }}" class="btn btn-danger" >Hapus</button>
+                                                <button type="submit" id="confirmButton-{{ $category->id }}" class="btn btn-danger">Yakin, Hapus</button>
                                             </div>
                                         </form>
                                     </div>
@@ -63,18 +63,7 @@
     </div>
 
     <script>
-    function confirmDelete($id) {
-        const modalBody = document.getElementById('modalBody-' + $id);
-        const confirmButton = document.getElementById('confirmButton-' + $id);
-        const deleteButton = document.getElementById('deleteButton' + $id);
 
-        // Ganti isi modal
-        modalBody.innerHTML = 'Jika dihapus maka produk yang bertipe kategori ini akan hilang. Klik "Hapus" untuk menghapus kategori ini secara permanen.';
-
-        deleteButton.classList.add('d-none');
-
-        // Tampilkan tombol submit
-        confirmButton.classList.remove('d-none');
-    }
     </script>
+
 @endsection

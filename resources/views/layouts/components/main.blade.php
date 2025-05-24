@@ -92,7 +92,7 @@
                     <form action="/logout" method="post">
                         @csrf
                         @method('POST')
-                        <button type="submit"class="btn btn-danger" >Keluar</button>
+                        <button type="submit" class="btn btn-danger">Keluar</button>
                     </form>
                 </div>
             </div>
