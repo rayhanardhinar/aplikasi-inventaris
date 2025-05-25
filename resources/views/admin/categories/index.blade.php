@@ -16,9 +16,9 @@
                     <table class="table table-bordered">
                         <thead class="text-center">
                             <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Aksi</th>
+                                <th style="width: 40px">No</th>
+                                <th style="width: 191px">Nama</th>
+                                <th style="width: 80px ">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

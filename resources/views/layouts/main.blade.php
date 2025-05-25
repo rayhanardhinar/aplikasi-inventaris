@@ -111,11 +111,16 @@
     <script src={{ asset('templates/js/sb-admin-2.min.js') }}></script>
 
     <!-- Page level plugins -->
-    {{-- <script src={{asset("templates/vendor/chart.js/Chart.min.js")}}></script>
+    <script src={{ asset('templates/vendor/chart.js/Chart.min.js') }}></script>
+    <script src={{ asset('templates/vendor/datatables/jquery.dataTables.min.js') }}></script>
+    <script src={{ asset('templates/vendor/datatables/dataTables.bootstrap4.min.js') }}></script>
 
     <!-- Page level custom scripts -->
-    <script src={{asset("templates/js/demo/chart-area-demo.js")}}></script>
-    <script src={{asset("templates/js/demo/chart-pie-demo.js")}}></script> --}}
+    {{-- <script src={{ asset('templates/js/demo/chart-area-demo.js') }}></script>
+    <script src={{ asset('templates/js/demo/chart-pie-demo.js') }}></script>  --}}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src={{ asset('templates/js/demo/datatables-demo.js') }}></script>
 
     <script>
         setTimeout(function() {
@@ -126,6 +131,25 @@
                 setTimeout(() => alert.remove(), 500); // Hapus elemen dari DOM
             }
         }, 3000); // 3000 ms = 3 detik
+
+        $(document).on('click', '.pagination a', function(e) {
+            e.preventDefault();
+
+            let url = $(this).attr('href');
+            fetchProducts(url);
+        });
+
+        function fetchProducts(url) {
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    $('#product-data').html(data);
+                },
+                error: function() {
+                    alert('Gagal mengambil data.');
+                }
+            });
+        }
     </script>
 
 </body>

@@ -9,10 +9,18 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $view = auth()->user()->hasRole('admin') ? 'admin.products.index' : 'user.products.index';
         $products = Product::with('category')->paginate(10);
+
+        if ($request->ajax()) {
+            $view = auth()->user()->hasRole('admin')
+                ? 'admin.components.admin-products-table'
+                : 'user.components.user-products-table';
+
+            return view($view, compact('products'))->render();
+        }
 
         return view($view, [
             "products" => $products,
