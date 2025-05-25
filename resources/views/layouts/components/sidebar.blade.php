@@ -1,28 +1,29 @@
 @php
     $menus = [
         (object) [
-            "title" => "Dashboard",
-            "route" => "index",
-            "icon" => "fas fa-fw fa-tachometer-alt",
+            'title' => 'Dashboard',
+            'route' => 'index',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
         ],
         (object) [
-            "title" => "Produk",
-            "route" => "pages.products.product",
-            "icon" => "fas fa-fw fa-archive",
+            'title' => 'Produk',
+            'route' => 'admin.products.index',
+            'icon' => 'fas fa-fw fa-archive',
         ],
         (object) [
-            "title" => "Kategori",
-            "route" => "pages.categories.category",
-            "icon" => "fas fa-fw fa-layer-group",
+            'title' => 'Kategori',
+            'route' => 'admin.categories.index',
+            'icon' => 'fas fa-fw fa-layer-group',
         ],
-    ]
+    ];
 @endphp
 
-<ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion position-sticky" id="accordionSidebar" style="top: 0; height: 100vh;">
+<ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion position-sticky" id="accordionSidebar"
+    style="top: 0; height: 100vh;">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-        <div class="sidebar-brand-text mx-3">Atur.In</div>
+        <div class="sidebar-brand-text mx-3">Simpan.In</div>
     </a>
 
     <!-- Divider -->
@@ -30,10 +31,10 @@
 
     <!-- Nav Item - Dashboard -->
     @foreach ($menus as $menu)
-        <li class="nav-item {{ request()->routeIs($menu->route) ? 'active' : ''}}">
-        <a class="nav-link" href="{{ route($menu->route )}}">
-            <i class="{{ $menu->icon }}"></i>
-            <span>{{ $menu->title }}</span></a>
+        <li class="nav-item {{ request()->routeIs($menu->route) ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route($menu->route) }}">
+                <i class="{{ $menu->icon }}"></i>
+                <span>{{ $menu->title }}</span></a>
         </li>
     @endforeach
 

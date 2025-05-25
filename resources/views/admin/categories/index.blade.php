@@ -1,4 +1,4 @@
-@extends('layouts.components.main')
+@extends('layouts.main')
 
 @section('header')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">

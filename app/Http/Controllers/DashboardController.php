@@ -10,7 +10,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.dashboard.index', [
+        $view = auth()->user()->hasRole('admin') ? 'admin.dashboard.index' : 'user.dashboard.index';
+
+        return view($view, [
             "productsCount" => Product::count(),
             "categoriesCount" => Category::count(),
         ]);

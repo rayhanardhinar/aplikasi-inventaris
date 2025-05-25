@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function product()
+    public function index()
     {
+        $view = auth()->user()->hasRole('admin') ? 'admin.products.index' : 'user.products.index';
         $products = Product::with('category')->paginate(10);
 
-        return view('pages.products.product', [
+        return view($view, [
             "products" => $products,
         ]);
     }
@@ -22,7 +23,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
 
-        return view('pages.products.create', [
+        return view('admin.products.create', [
             "categories" => $categories,
         ]);
     }
@@ -65,7 +66,7 @@ class ProductController extends Controller
         $categories = Category::all();
         $product = Product::findOrFail($id);
 
-        return view('pages.products.edit', [
+        return view('admin.products.edit', [
             "categories" => $categories,
             "product" => $product,
         ]);

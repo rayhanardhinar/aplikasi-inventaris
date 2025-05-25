@@ -1,9 +1,9 @@
-@extends('layouts.components.main')
+@extends('layouts.main')
 
 @section('header')
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h1 mb-0 text-gray-900">Tambah Produk</h1>
-</div>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h1 mb-0 text-gray-900">Tambah Produk</h1>
+    </div>
 @endsection
 
 @section('content')
@@ -16,7 +16,8 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name" class="form-label text-dark font-weight-bold">Nama</label>
-                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
+                            <input type="text" name="name" id="name"
+                                class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                             @error('name')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
@@ -27,24 +28,29 @@
                         </div>
                         <div class="form-group">
                             <label for="quantity" class="form-label text-dark font-weight-bold">Jumlah</label>
-                            <input type="number" name="quantity" id="quantity" class="form-control @error('name') is-invalid @enderror" value="{{ old('quantity') }}">
+                            <input type="number" name="quantity" id="quantity"
+                                class="form-control @error('name') is-invalid @enderror" value="{{ old('quantity') }}">
                             @error('quantity')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="price" class="form-label text-dark font-weight-bold">Harga</label>
-                            <input type="number" name="price" id="price" class="form-control @error('name') is-invalid @enderror" value="{{ old('price') }}">
+                            <input type="number" name="price" id="price"
+                                class="form-control @error('name') is-invalid @enderror" value="{{ old('price') }}">
                             @error('price')
                                 <span class="invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="category_id" class="form-label text-dark font-weight-bold">Kategori</label>
-                            <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                            <select name="category_id" id="category_id"
+                                class="form-control @error('category_id') is-invalid @enderror">
                                 <option value="" selected disabled>--- Pilih kategori barang ---</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}"
+                                        {{ old('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}
+                                    </option>
                                 @endforeach
                             </select>
                             @error('category_id')

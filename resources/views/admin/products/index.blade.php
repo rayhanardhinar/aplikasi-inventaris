@@ -1,4 +1,4 @@
-@extends('layouts.components.main')
+@extends('layouts.main')
 
 @section('header')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -43,6 +43,31 @@
                                                 data-toggle="modal" data-target="#deleteModal-{{ $product->id }}"><i
                                                     class="fa-solid fa-trash"></i></button>
                                         </div>
+                                        <div class="modal fade" id="deleteModal-{{ $product->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="deleteModalLabel{{ $product->id }}"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="deleteModalLabel{{ $product->id }}">
+                                                            Hapus
+                                                            Produk</h5>
+                                                    </div>
+                                                    <div class="modal-body">Apakah kamu yakin ingin menghapus
+                                                        <strong>{{ $product->name }}</strong>?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-secondary" type="button"
+                                                            data-dismiss="modal">Batal</button>
+                                                        <form action="/products/{{ $product->id }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -51,28 +76,6 @@
                 </div>
                 <div class="card-footer">
                     {{ $products->links('pagination::bootstrap-5') }}
-                </div>
-                <div class="modal fade" id="deleteModal-{{ $product->id }}" tabindex="-1" role="dialog"
-                    aria-labelledby="deleteModalLabel{{ $product->id }}" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel{{ $product->id }}">Hapus
-                                    Produk</h5>
-                            </div>
-                            <div class="modal-body">Apakah kamu yakin ingin menghapus
-                                <strong>{{ $product->name }}</strong>?
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                                <form action="/products/{{ $product->id }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Hapus</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

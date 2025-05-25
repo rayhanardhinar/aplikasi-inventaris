@@ -14,13 +14,13 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $userUser = User::where('email', 'user@gmail.com')->first();
+        $userUser = User::where('email', 'admin@gmail.com')->first();
 
-        if ($userUser && !$userUser->hasRole('user')) {
-            $userUser->assignRole('user');
-            $this->command->info("Berhasil assign role user ke {$userUser->email}");
+        if ($userUser && !$userUser->hasRole('admin')) {
+            $userUser->assignRole('admin');
+            $this->command->info("Berhasil assign role admin ke {$userUser->email}");
         } elseif (!$userUser) {
-            $this->command->warn("User dengan email user@gmail.com tidak ditemukan.");
+            $this->command->warn("User dengan email admin@gmail.com tidak ditemukan.");
         }
     }
 }

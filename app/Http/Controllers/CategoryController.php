@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function category()
+    public function index()
     {
+        $view = auth()->user()->hasRole('admin') ? 'admin.categories.index' : 'user.categories.index';
         $categories = Category::all();
 
-        return view('pages.categories.category', [
+        return view($view, [
             "categories" => $categories,
         ]);
     }
@@ -20,7 +21,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('pages.categories.create', [
+        return view('admin.categories.create', [
             "categories" => $categories,
         ]);
     }
@@ -51,7 +52,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        return view('pages.categories.edit', [
+        return view('admin.categories.edit', [
             "category" => $category,
         ]);
     }

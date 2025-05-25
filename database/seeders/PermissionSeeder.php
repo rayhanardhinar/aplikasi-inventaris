@@ -14,27 +14,27 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
+        // Buat roles
+        $adminRole = Role::firstOrCreate(['name' => 'admin']);
+        $userRole = Role::firstOrCreate(['name' => 'user']);
+
         // Buat permissions
         $permissions = [
             'view dashboard',
             'view products',
-            'create products',
-            'edit products',
-            'delete products',
+            'manage products',    // Gabungan create, edit, delete products
+            'view categories',
+            'manage categories',  // Gabungan create, edit, delete categories
         ];
 
         foreach ($permissions as $permission) {
             Permission::firstOrCreate(['name' => $permission]);
         }
 
-        // Buat roles
-        $adminRole = Role::firstOrCreate(['name' => 'admin']);
-        $userRole = Role::firstOrCreate(['name' => 'user']);
-
         // Assign permission ke role admin (full akses)
         $adminRole->syncPermissions($permissions);
 
         // Assign permission ke role user (hanya lihat)
-        $userRole->syncPermissions(['view dashboard', 'view products']);
+        $userRole->syncPermissions(['view dashboard', 'view products', 'view categories']);
     }
 }
