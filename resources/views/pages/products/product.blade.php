@@ -13,7 +13,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" style="table-layout: fixed">
                         <thead class="text-center">
                             <tr>
                                 <th>No</th>
@@ -45,35 +45,34 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="deleteModal-{{ $product->id }}" tabindex="-1" role="dialog"
-                                    aria-labelledby="deleteModalLabel{{ $product->id }}" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteModalLabel{{ $product->id }}">Hapus
-                                                    Produk</h5>
-                                            </div>
-                                            <div class="modal-body">Apakah kamu yakin ingin menghapus
-                                                <strong>{{ $product->name }}</strong>?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button"
-                                                    data-dismiss="modal">Batal</button>
-                                                <form action="/products/{{ $product->id }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Hapus</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="card-footer">
                     {{ $products->links('pagination::bootstrap-5') }}
+                </div>
+                <div class="modal fade" id="deleteModal-{{ $product->id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteModalLabel{{ $product->id }}" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel{{ $product->id }}">Hapus
+                                    Produk</h5>
+                            </div>
+                            <div class="modal-body">Apakah kamu yakin ingin menghapus
+                                <strong>{{ $product->name }}</strong>?
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                <form action="/products/{{ $product->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
