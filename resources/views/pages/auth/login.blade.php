@@ -12,13 +12,13 @@
     <title>Atur.in - Login</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{ asset("templates/vendor/fontawesome-free/css/all.min.css")}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('templates/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset("templates/css/sb-admin-2.min.css")}}" rel="stylesheet">
+    <link href="{{ asset('templates/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -42,7 +42,8 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="d-flex justify-content-center ml-5">
-                                    <img src="https://img.freepik.com/free-photo/computer-security-with-login-password-padlock_107791-16191.jpg" alt="">
+                                    <img src="https://img.freepik.com/free-photo/computer-security-with-login-password-padlock_107791-16191.jpg"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -54,19 +55,21 @@
                                         @csrf
                                         @method('POST')
                                         <div class="form-group">
-                                            <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                                id="email" name="email" aria-describedby="emailHelp"
+                                            <input type="email"
+                                                class="form-control @error('email') is-invalid @enderror" id="email"
+                                                name="email" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
-                                                @error('email')
-                                                    <span class="invalid-feedback">{{ $message }}</span>
-                                                @enderror
+                                            @error('email')
+                                                <span class="invalid-feedback">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control"
-                                                id="password" name="password" placeholder="Password">
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                placeholder="Password">
                                         </div>
                                         <div class="form-group">
-                                          <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                            <button type="submit"
+                                                class="btn btn-primary btn-user btn-block">Login</button>
                                         </div>
                                     </form>
                                     <hr>
@@ -89,17 +92,17 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset("templates/vendor/jquery/jquery.min.js")}}"></script>
-    <script src="{{ asset("templates/vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+    <script src="{{ asset('templates/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('templates/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset("templates/vendor/jquery-easing/jquery.easing.min.js")}}"></script>
+    <script src="{{ asset('templates/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset("templates/js/sb-admin-2.min.js")}}"></script>
+    <script src="{{ asset('templates/js/sb-admin-2.min.js') }}"></script>
 
     <script>
-        setTimeout(function () {
+        setTimeout(function() {
             let alert = document.getElementById('notLogin');
             if (alert) {
                 alert.classList.remove('show');

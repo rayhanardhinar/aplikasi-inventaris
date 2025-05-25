@@ -9,15 +9,17 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function product() {
-        $products = Product::with('category')->get();
+    public function product()
+    {
+        $products = Product::with('category')->paginate(10);
 
         return view('pages.products.product', [
             "products" => $products,
         ]);
     }
 
-    public function create() {
+    public function create()
+    {
         $categories = Category::all();
 
         return view('pages.products.create', [
@@ -25,7 +27,8 @@ class ProductController extends Controller
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             "name" => "required|min:3",
             "description" => "nullable",
@@ -50,14 +53,15 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-    public function delete($id) {
-        $product = Product::where('id', $id);
-        $product->delete();
+    public function delete($id)
+    {
+        Product::destroy($id);
 
         return redirect('/products');
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $categories = Category::all();
         $product = Product::findOrFail($id);
 
@@ -67,7 +71,8 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $validated = $request->validate([
             "name" => "required|min:3",
             "description" => "nullable",
@@ -87,12 +92,13 @@ class ProductController extends Controller
             'category_id.exists' => 'Kategori yang dipilih tidak valid.',
         ]);
 
-        Product::where('id', $id)->update($validated);
+        Product::findOrFail($id)->update($validated);
 
         return redirect('/products')->with('success', 'Produk berhasil diperbarui!');
     }
 
-    public function formatRupiah($value, $decimal = 2) {
+    public function formatRupiah($value, $decimal = 2)
+    {
         return 'Rp ' . number_format($value, $decimal, ',', '.');
     }
 }

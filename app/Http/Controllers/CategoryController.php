@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function category(){
+    public function category()
+    {
         $categories = Category::all();
 
         return view('pages.categories.category', [
@@ -15,7 +16,8 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function create(){
+    public function create()
+    {
         $categories = Category::all();
 
         return view('pages.categories.create', [
@@ -23,7 +25,8 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             "name" => "required|min:3",
         ], [
@@ -36,20 +39,34 @@ class CategoryController extends Controller
         return redirect('/categories');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $category = Category::where('id', $id);
         $category->delete();
 
         return redirect('/categories');
-
     }
 
-    public function edit(){
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
 
+        return view('pages.categories.edit', [
+            "category" => $category,
+        ]);
     }
 
-    public function update(){
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            "name" => "required|min:3",
+        ], [
+            'name.required' => 'Nama produk wajib diisi.',
+            'name.min' => 'Nama produk minimal harus 3 karakter.',
+        ]);
 
+        Category::where('id', $id)->update($validated);
+
+        return redirect('/categories');
     }
-
 }

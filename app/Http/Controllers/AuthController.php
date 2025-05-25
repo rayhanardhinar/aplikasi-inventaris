@@ -7,15 +7,17 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function loginView(){
-        if(Auth::check()){
+    public function loginView()
+    {
+        if (Auth::check()) {
             return back();
         }
         return view('pages.auth.login');
     }
 
-    public function login(Request $request){
-        if(Auth::check()){
+    public function login(Request $request)
+    {
+        if (Auth::check()) {
             return back();
         }
         $credentials = $request->validate([
@@ -26,7 +28,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/products');
+            return redirect()->intended('/');
         }
 
         return back()->withErrors([
@@ -34,7 +36,8 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
 
         $request->session()->invalidate();

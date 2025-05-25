@@ -8,13 +8,11 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index() {
-        $totalProducts = Product::count();
-        $totalCategories = Category::count();
-
+    public function index()
+    {
         return view('pages.dashboard.index', [
-            "totalProducts" => $totalProducts,
-            "totalCategories" => $totalCategories,
+            "productsCount" => Product::count(),
+            "categoriesCount" => Category::count(),
         ]);
     }
 }
