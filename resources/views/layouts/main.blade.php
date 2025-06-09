@@ -116,10 +116,9 @@
     <script src={{ asset('templates/vendor/datatables/dataTables.bootstrap4.min.js') }}></script>
 
     <!-- Page level custom scripts -->
-    {{-- <script src={{ asset('templates/js/demo/chart-area-demo.js') }}></script>
-    <script src={{ asset('templates/js/demo/chart-pie-demo.js') }}></script>  --}}
+    {{-- <script src={{ asset('templates/js/demo/chart-area-demo.js') }}></script> --}}
+    <script src={{ asset('templates/js/demo/chart-pie-demo.js') }}></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src={{ asset('templates/js/demo/datatables-demo.js') }}></script>
 
     <script>
